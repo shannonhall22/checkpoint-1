@@ -1,40 +1,27 @@
 class AreasController < ApplicationController
   def square
-    @a = params[:length_of_side].to_f
-    @area = @a**2
+    @square = OneParam.new(params[:length_of_side])
   end
 
   def circle
-    pi = 3.1416 # Close enough.
-    @r = params[:radius].to_i
-    @area = pi * (@r**2)
+    @circle = OneParam.new(params[:radius])
   end
 
   def triangle
-    @b = params[:base].to_f
-    @h = params[:vertical_height].to_f
-    @area = 0.5 * @b * @h
+    @triangle = TwoParams.new(params[:base], params[:vertical_height])
   end
 
   def rectangle
-    @w = params[:width].to_f
-    @h = params[:height].to_f
-    @area = @w * @h
+    @rectangle = TwoParams.new(params[:width], params[:height])
   end
 
   def trapezoid
-    @a = params[:a].to_f
-    @b = params[:b].to_f
-    @vert_height = params[:vertical_height].to_f
-    @area = ((@a+@b)/2)*@vert_height
+    @trapezoid = ThreeParams.new(params[:a], params[:b], params[:vertical_height])
   end
 
 
   def ellipse
-    pi = 3.1416 # Close enough.
-    @a = params[:a].to_f
-    @b = params[:b].to_f
-    @area = pi * @a * @b
+    @ellipse = TwoParams.new(params[:a], params[:b])
   end
 
   def random

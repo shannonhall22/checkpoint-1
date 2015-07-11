@@ -8,7 +8,6 @@ class ThreeParams
   end
 
   def trapezoid_area
-
     return ( (a+b) / 2) * vert
   end
 end

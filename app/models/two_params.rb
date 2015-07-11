@@ -20,6 +20,6 @@ class TwoParams
   def triangle_area
     @base = a
     @h = b
-    return 0.5 * @base * @h
+    return 0.5 * base * h
   end
 end

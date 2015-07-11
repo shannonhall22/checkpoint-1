@@ -6,13 +6,14 @@ class AreasController < ApplicationController
 
   def circle
     pi = 3.1416 # Close enough.
-    @r = params[:radius]
+    @r = params[:radius].to_i
+    @area = pi * (@r**2)
   end
 
   def triangle
     @b = params[:base].to_f
     @h = params[:vertical_height].to_f
-    area = 0.5 * b * h
+    @area = 0.5 * @b * @h
   end
 
   def rectangle
@@ -20,6 +21,14 @@ class AreasController < ApplicationController
     @h = params[:height].to_f
     @area = @w * @h
   end
+
+  def trapezoid
+    @a = params[:a].to_f
+    @b = params[:b].to_f
+    @vert_height = params[:vertical_height].to_f
+    @area = ((@a+@b)/2)*@vert_height
+  end
+
 
   def ellipse
     pi = 3.1416 # Close enough.
